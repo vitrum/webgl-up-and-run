@@ -1,2 +1,2 @@
-#CHAPTER 1   
-##An Introduction to WebGL
+#第一章
+##WebGL 概述
