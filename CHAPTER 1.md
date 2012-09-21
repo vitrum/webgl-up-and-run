@@ -18,27 +18,16 @@ WebGL可以工作在大部分台式机，以及越来越多的移动设备的浏
 
 WebGL正处在不断成长并且充满活力的系统的核心地位，这个生态系统使得网络体验能获得更加丰富的视觉效果而且更加引人入胜。从游戏开发到数据可视化，从计算机辅助设计到网上零售，现在已经有数以百计的网站、程序和工具正在开发之中。
 
-当然在一开始WebGL API接口的底层工作方式会让人望而却步，不过现在已经有好几个开源的JavaScript库可以让我们避免那些枯燥的引用工作。我会注意不过渡宣扬三维开发的难度，有了这些工具大家能循序渐进的了解WebGL的运作机制。总而言之，这也许是你实现心中那个格斗游戏梦想的机会；或许这是你用眩目的三维网页让老板弹眼落睛的好机会了。
+当然在一开始WebGL API接口的底层工作方式会让人望而却步，不过现在已经有好几个开源的JavaScript库可以让我们避免那些枯燥的引用工作。我会注意不过渡宣扬三维开发的难度，有了这些工具大家能循序渐进的了解WebGL的运作机制。总而言之，这也许是你实现心中那个格斗游戏梦想的机会；或许这是你用眩目的三维网页让老板大开眼界的好机会了。
+
+在这章里，我们会简单介绍WebGL的底层调用，而在其他大部分章节我们会使用一个封装了底层的工具：Three.js , 它会帮我们处理很多体力活。当然为了用好它们，我们仍然需要了解这些工具的实现机制，让我们开始探索的WebGL的的核心概念和API接口吧。
+
+###WebGL的定义
+
 
 ======================
 
-WebGL is at the center of a
-vibrant and growing ecosystem that is making the web experience more visually rich
-and engaging. There are hundreds of sites, applications, and tools being developed, with
-applications ranging from games to data visualization, computer-aided design, and
-consumer retail.
-While the low-level nature of the WebGL API may appear daunting at first, there are
-several open source JavaScript toolkits that take the grunt work out of development. I
-want to be careful not to oversell this—3D is still hard work—but these tools at least
-make it possible for mere mortals with modest web development experience to get into
-the WebGL business. So maybe it’s finally time for you to create that hit game you always
-wanted to make. Or maybe today is the day when you blow your boss’s mind with a
-dazzling intro graphic for your home page.
-In this chapter, we will take a quick tour of the low-level underpinnings of WebGL to
-give you a foundation. For the majority of the book, we will use a high-level 3D toolkit,
-Three.js, which hides many of the messy details. But it is important to know what these
-tools are built upon, so let’s start by exploring WebGL’s core concepts and API.
-WebGL—A Technical Definition
+
 WebGL is developed and maintained by the Khronos Group, the standards body that
 also governs OpenGL, COLLADA, and other specifications you may have heard of. Here
 is the official description of WebGL, from the Khronos website:
