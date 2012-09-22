@@ -25,54 +25,26 @@ WebGL正处在不断成长并且充满活力的系统的核心地位，这个生
 ###WebGL的定义
 
 WebGL是由科纳斯组织（Khronos Group）开发和管理的，这个组织还管理着OpenGL、COLLADA等一些你听说过的标准。以下是科纳斯组织网站上对WebGL的官方定义：
-WebGL 是免授权费的，跨平台的应用程序接口API，它将OpenGL ES 2.0作为在HTML网页内的3D绘图环境，作为低级别文档对象模型接口开放。它使用OpenGL渲染语言GLSL ES，并可被整洁地与其他3D内容上层或下层的网页内容捆绑。它是使用JavaScript编程开发语言开发适合动态3D网页应用的理想工具，并已被主流互联网浏览器集成。
 
+*WebGL 是免授权费的，跨平台的应用程序接口API，它将OpenGL ES 2.0作为在HTML网页内的3D绘图环境，作为低级别文档对象模型接口开放。它使用OpenGL渲染语言GLSL ES，并可被整洁地与其他3D内容上层或下层的网页内容捆绑。它是使用JavaScript编程开发语言开发适合动态3D网页应用的理想工具，并已被主流互联网浏览器集成。*
 
-======================
+这个定义包含了以下几个核心思想：
+####WebGL是一个API
+WebGL完全是通过特定的JavaScript接口访问，而没有新增HTML标签。WebGL的三维渲染同样使用二维渲染使用的Canvas元素，它是通过JavaScript API调用。实际上，WebGL的机制就是通过上下文，在Canvas元素上做特定的渲染。
 
+####WebGL基于OpenGL ES 2.0
+OpenGL ES是从 OpenGL 裁剪定制而来的，ES表示嵌入式系统（embedded systems）。意指其针对多种嵌入式系统专门设计，它已应用与大部分手机和平板。OpenGL ES更是iPhone、iPad、Android等平板的三维力量之源。基于OpenGL ES的低能耗，WebGL的设计者们认为，提供一个一致的、跨平台、跨浏览器的三维API接口是可以实现的。
 
-WebGL is developed and maintained by the Khronos Group, the standards body that
-also governs OpenGL, COLLADA, and other specifications you may have heard of. Here
-is the official description of WebGL, from the Khronos website:
-WebGL is a royalty-free, cross-platform API that brings OpenGL ES 2.0 to the web as a
-3D drawing context within HTML, exposed as low-level Document Object Model inter
-faces. It uses the OpenGL shading language, GLSL ES, and can be cleanly combined with
-other web content that is layered on top or underneath the 3D content. It is ideally suited
-for dynamic 3D web applications in the JavaScript programming language, and will be
-fully integrated in leading web browsers.
-2 | Chapter 1: An Introduction to WebGLhis definition comprises several core ideas. Let’s deconstruct them here:
-WebGL is an API
-WebGL is accessed exclusively through a set of JavaScript programming interfaces;
-there are no accompanying tags like there are with HTML. 3D rendering in WebGL
-is analogous to 2D drawing using the Canvas element, in that it is all done through
-JavaScript API calls. In fact, access to WebGL is provided using the existing Canvas
-element and obtaining a special drawing context specific to WebGL.
-WebGL is based on OpenGL ES 2.0
-OpenGL ES is an adaption of the long-established 3D rendering standard OpenGL.
-The “ES” stands for “embedded systems,” meaning that it has been tailored for use
-in small computing devices, most notably phones and tablets. OpenGL ES is the
-API that powers 3D graphics for the iPhone, the iPad, and Android phones and
-tablets. . WebGL’s designers felt that, by basing the API on OpenGL ES’s small foot
-print, delivering a consistent, cross-platform, cross-browser 3D API for the Web
-would be more achievable.
-WebGL combines with other web content
-WebGL layers on top of or underneath other page content. The 3D canvas can take
-up just a portion of the page, or the whole page. It can reside inside <div> tags that
-are z-ordered. This means that you develop your 3D graphics using WebGL, but all
-your other elements are built using familiar old HTML. The browser composites
-(combines) all of the graphics on the page into a seamless experience for the user.
-WebGL is built for dynamic web applications
-WebGL has been designed with web delivery in mind. WebGL starts with OpenGL
-ES, but it has been adapted with specific features that integrate well with web
-browsers, work with the JavaScript language, and are friendly for web delivery.
-WebGL is cross-platform
-WebGL is capable of running on any operating system, on devices ranging from
-phones and tablets to desktop computers.
-WebGL is royalty-free
-Like all open web specifications, WebGL is free to use. Nobody will be asking you
-to pay royalties for the privilege.
-The makers of Chrome, Firefox, Safari, and Opera have committed significant resources
-to developing and supporting WebGL, and engineers from these teams are also key
-members of the working group that develops the specification. The WebGL specification
-process is open to all Khronos members, and there are also mailing lists open to the
-public. See Appendix A for mailing list information and other specification resources.
+####WebGL能同其他页面内容有机融合
+显示WebGL的层可以在其他内容的上方或者下方。 三维画布可以只是部分的页面，也可以整个页面。它所在的<div>标签能通过Z-index排序。这意味着，您可以用WebGL开发三维图形，而页面里其他元素都使用原来就熟悉的HTML。浏览器会把用户在网页上的图形有机的整合在一起，让用户得到无缝的体验。
+
+####WebGL是为动态网页而生
+WebGL在设计时就已经考虑到网页交互。虽然起源与OpenGL ES，它定制了特别的功能，能很好适应网页浏览器和JavaScript，提供友好的网页交互。
+
+####WebGL是跨平台
+WebGL能够运行在任何操作系统上，设备上，从手机和平板电脑台式电脑。
+
+####WebGL是免专利费
+像所有开放式网络规范，WebGL是免费使用的。没有人有要求您支付特许权使用费的权利。
+
+Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提供支持WebGL的重要资源，并且这些团队的工程师也是工作组的主要成员，他们参与编写规范。 WebGL的规范流程是开放给所有科纳斯组织的成员，并提供向公众开放的邮件列表。如有需要，请参阅附录A中的邮件列表信息和其他规范资源。
