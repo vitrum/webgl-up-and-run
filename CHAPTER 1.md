@@ -48,3 +48,26 @@ WebGL能够运行在任何操作系统上，设备上，从手机和平板电脑
 就象所有开放式网络规范一样，WebGL是免费使用的。没人能跑来问您收取特许权使用费。
 
 Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提供支持WebGL的重要资源，并且这些团队的工程师也是工作组的主要成员，他们参与编写规范。 WebGL的规范流程是开放给所有科纳斯组织成员的，并提供向公众开放的邮件列表。如您需要，请参阅附录A中的邮件列表信息和其他规范资源。
+
+
+###三维图形--一个惊雷
+“数学太难了！”--芭比娃娃。这是句臭名昭著的性别歧视者常说的话，事实上，我和芭比的感觉一样，希望能通过沉迷在购物来治疗在三维开发中受的伤。哪些数学运算实在太难了！幸运的是，你不需要成为数学神童才能理解WebGL；我们有一个库可以替我们干那些麻烦的运算，我们可以省下时间撮火球了！不过在开始用之前，我们还是要了解一下在渲染引擎之下发生的事情，这挺重要的。以下几页内容是我总结的三维图形基础。
+
+
+
+
+
+=============================================
+3D Coordinate Systems
+3D drawing takes place, not surprisingly, in a 3D coordinate system. Anyone familiar
+with 2D Cartesian coordinate systems such as you find on graph paper, or in the window
+coordinates of an HTML document, knows about x and y values. These 2D coordinates
+define where <div> tags are located on a page, or where the virtual “pen” or “brush”
+draws in the case of the HTML Canvas element. Similarly, 3D drawing takes place in a
+3D coordinate system, where there is an additional coordinate, z, which describes depth
+(i.e., how far into or out of the screen an object is drawn). The WebGL coordinate system
+is arranged as depicted in Figure 1-2, with x running horizontally left to right, y running
+vertically bottom to top, and positive z coming out of the screen.
+If you are already comfortable with the concept of the 2D coordinate system, I think the
+transition to a 3D coordinate system is pretty straightforward. However, from here on,
+things get a little complicated.
