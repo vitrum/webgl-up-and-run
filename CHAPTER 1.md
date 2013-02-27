@@ -60,18 +60,7 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 
 ![附图1－2](chapter_1/1_2.png)
 
+如果你已经熟悉二维坐标系统的概念，我认为过渡到三维坐标系统是非常简单的。不过，下面的内容将变的有点复杂。
 
 =============================================
-3D Coordinate Systems
-3D drawing takes place, not surprisingly, in a 3D coordinate system. Anyone familiar
-with 2D Cartesian coordinate systems such as you find on graph paper, or in the window
-coordinates of an HTML document, knows about x and y values. These 2D coordinates
-define where <div> tags are located on a page, or where the virtual “pen” or “brush”
-draws in the case of the HTML Canvas element. Similarly, 3D drawing takes place in a
-3D coordinate system, where there is an additional coordinate, z, which describes depth
-(i.e., how far into or out of the screen an object is drawn). The WebGL coordinate system
-is arranged as depicted in Figure 1-2, with x running horizontally left to right, y running
-vertically bottom to top, and positive z coming out of the screen.
-If you are already comfortable with the concept of the 2D coordinate system, I think the
-transition to a 3D coordinate system is pretty straightforward. However, from here on,
-things get a little complicated.
+Meshes, Polygons, and VerticesWhile there are several ways to draw 3D graphics, by far the most common is to use amesh. A mesh is an object composed of one or more polygonal shapes, constructed outof vertices (x, y, z triples) defining coordinate positions in 3D space. The polygons mosttypically used in meshes are triangles (groups of three vertices) and quads (groups offour vertices). 3D meshes are often referred to as models.Figure 1-3 illustrates a 3D mesh. The dark lines outline the quads that comprise themesh, defining the shape of the face. (You would not see these lines in the final renderedimage; they are included for reference.) The x, y, and z components of the mesh’s verticesdefine the shape only; surface properties of the mesh, such as the color and shading, aredefined using additional attributes, as we will discuss shortly.4 |
