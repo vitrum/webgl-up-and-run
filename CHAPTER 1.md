@@ -62,5 +62,17 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 
 如果你已经熟悉二维坐标系统的概念，我认为过渡到三维坐标系统是非常简单的。不过，下面的内容将变的有点复杂。
 
+####网格、多边形和顶点
+尽管有几种方式来绘制三维图形，目前最常用的是使用网格。网格绘制是把一个对象分解成一个或者多个多边形，通过定义多边形的顶点（x,y,z轴）在三维空间中的坐标来确定对象。这些多边形通常是三角形（三个顶点）和四边形（四个顶点）。三维网格通常被称为模型。
+
+![附图1－2](chapter_1/1_3.png)
+
+图1－3 显示了一个三维网格。由深色线条勾勒出的四边形沟成了网格，组成了脸的形状。（最终效果中，你不会看到这些深色线条，现在它们用作参考）网格顶点的坐标XYZ值只用来定义形状；网格表面的一些性质，如颜色阴影等是通过使用其它属性定义，我们很快就会讨论。
+
+####材料、纹理和灯光
+
+
+
+
 =============================================
-Meshes, Polygons, and VerticesWhile there are several ways to draw 3D graphics, by far the most common is to use amesh. A mesh is an object composed of one or more polygonal shapes, constructed outof vertices (x, y, z triples) defining coordinate positions in 3D space. The polygons mosttypically used in meshes are triangles (groups of three vertices) and quads (groups offour vertices). 3D meshes are often referred to as models.Figure 1-3 illustrates a 3D mesh. The dark lines outline the quads that comprise themesh, defining the shape of the face. (You would not see these lines in the final renderedimage; they are included for reference.) The x, y, and z components of the mesh’s verticesdefine the shape only; surface properties of the mesh, such as the color and shading, aredefined using additional attributes, as we will discuss shortly.4 |
+Materials, Textures, and LightsThe surface of a mesh is defined using additional attributes beyond the x, y, and z vertexpositions. Surface attributes can be as simple as a single solid color, or they can becomplex, comprising several pieces of information that define, for example, how lightreflects off the object or how shiny the object looks. Surface information can also berepresented using one or more bitmaps, known as texture maps (or simply textures).Textures can define the literal surface look (such as an image printed on a t-shirt), orthey can be combined with other textures to achieve sophisticated effects such as bumpiness or iridescence. In most graphics systems, the surface properties of a mesh arereferred to collectively as materials. Materials typically rely on the presence of one ormore lights, which (as you may have guessed) define how a scene is illuminated.
