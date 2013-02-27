@@ -65,14 +65,26 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 ####网格、多边形和顶点
 尽管有几种方式来绘制三维图形，目前最常用的是使用网格。网格绘制是把一个对象分解成一个或者多个多边形，通过定义多边形的顶点（x,y,z轴）在三维空间中的坐标来确定对象。这些多边形通常是三角形（三个顶点）和四边形（四个顶点）。三维网格通常被称为模型。
 
-![附图1－2](chapter_1/1_3.png)
-
 图1－3 显示了一个三维网格。由深色线条勾勒出的四边形沟成了网格，组成了脸的形状。（最终效果中，你不会看到这些深色线条，现在它们用作参考）网格顶点的坐标XYZ值只用来定义形状；网格表面的一些性质，如颜色阴影等是通过使用其它属性定义，我们很快就会讨论。
 
-####材料、纹理和灯光
+####材质、纹理和灯光
+网格表面的定义是使用了XYZ顶点属性之外的新属性。表面属性可以很简单：单一的纯色；也可以很复杂，包含几个信息，例如光线在表面的反射或者物体表面的光泽。表面信息也可以使用一个或多个位图，通常这被称为纹理映射（简称纹理）。纹理可以是简单的文字（就像在T恤衫上印字）或者它们可以和其它纹理组合展现复杂的效果：如不平滑的表面或欧泊的变彩。
 
+![附图欧泊的变彩](chapter_1/1_3_1.png)
+
+图 欧泊的变彩
+
+在大多数图形系统中，网格的结构被统称为材质。材质通常依赖与一个或多个光源，（你可能已经猜到）由光源定义了场景照明。
+
+![附图1－3](chapter_1/1_3.png)
+
+图1－3中的头部是由紫色的顶点组成网格，光源位置在头像的左侧（注意头像右侧的阴影效果）。
+
+####变形和矩阵
+
+三维网格是由它的顶点坐标定义位置的。每次你想将它移动到视线内的不同位置，特别是在处理网格在屏幕中移动或其它动画时会非常频繁的改变网格顶点的位置。处于节省系统资源的考虑，大多数系统支持调整变形和移动网格的相对值，而不必遍历操作所有顶点的属性就可以明确的改变网格的位置。并且支持网格的缩放、旋转、变形、翻转而无需调整任何顶点的实际值。
 
 
 
 =============================================
-Materials, Textures, and LightsThe surface of a mesh is defined using additional attributes beyond the x, y, and z vertexpositions. Surface attributes can be as simple as a single solid color, or they can becomplex, comprising several pieces of information that define, for example, how lightreflects off the object or how shiny the object looks. Surface information can also berepresented using one or more bitmaps, known as texture maps (or simply textures).Textures can define the literal surface look (such as an image printed on a t-shirt), orthey can be combined with other textures to achieve sophisticated effects such as bumpiness or iridescence. In most graphics systems, the surface properties of a mesh arereferred to collectively as materials. Materials typically rely on the presence of one ormore lights, which (as you may have guessed) define how a scene is illuminated.
+The head in Figure 1-3 has a material with a purple color and shading defined by a light source emanating from the left of the model (note the shadows on the right side of the face).Transforms and Matrices3D meshes are defined by the positions of their vertices. It would get awfully tedious to change a mesh’s vertex positions every time you want to move it to a different part othe view, especially if the mesh were continually moving across the screen or otherwise animating. For this reason, most 3D systems support transforms, operations that move the mesh by a relative amount without having to loop through every vertex, explicitly changing its position. Transforms allow a rendered mesh to be scaled, rotated, andtranslated (moved) around, without actually changing any values in its vertices.
