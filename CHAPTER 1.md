@@ -80,13 +80,20 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 
 图1－3中的头部是由紫色的顶点组成网格，光源位置在头像的左侧（注意头像右侧的阴影效果）。
 
-####变形和矩阵
+####变换和矩阵
 
 三维网格是由它的顶点坐标定义位置的。每次你想将它移动到视线内的不同位置，特别是在处理网格在屏幕中移动或其它动画时会非常频繁的改变网格顶点的位置。处于节省系统资源的考虑，大多数系统支持调整变形和移动网格的相对值，而不必遍历操作所有顶点的属性就可以明确的改变网格的位置。并且支持网格的缩放、旋转、变形、翻转而无需调整任何顶点的实际值。
 
-
+变换通常是
 
 
 =============================================
-A transform is typically represented by a matrix, a mathematical object containing anarray of values used to compute the transformed positions of vertices. If you are a linear
-the screen. Shaders are typically defined in a high-level C-like language and compiledinto code usable by the graphics processing unit (GPU). Most modern computers comeequipped with a GPU, a processor separate from the CPU that is dedicated to rendering3D graphics.If you read my earlier decoded definition of WebGL carefully, you may have noticedthat I glossed over one bit. From the official Khronos description:…It uses the OpenGL shading language, GLSL ES…Unlike many graphics systems, where shaders are an optional and/or advanced feature,WebGL requires shaders. You heard me right: when you program in WebGL, you mustdefine shaders or your graphics won’t show up on the screen. WebGL implementationsassume the presence of a GPU. The GPU understands vertices, textures, and little else;it has no concept of material, light, or transform. The translation between those highlevelinputs and what the GPU puts on the screen is done by the shader, and the shaderis created by the developer.
+A transform is typically represented by a matrix, a mathematical object containing an array of values used to compute the transformed positions of vertices. If you are a linear algebra geek like me, you probably feel comfortable with this idea. If not, please don’t break into a cold sweat. The Three.js toolkit we are using in this book lets us treat matrices like black boxes: we just say translate, rotate, or scale and the right thing happens.
+Cameras, Perspective, Viewports, and Projections Every rendered scene requires a point of view from which the user will be viewing it.
+3D systems typically use a camera, an object that defines where (relative to the scene) the user is positioned and oriented, as well as other real-world camera properties such as the size of the field of view, which defines perspective (i.e., objects farther away appearing smaller). The camera’s properties combine to deliver the final rendered image of a 3D scene into a 2D viewport defined by the window or canvas.
+Cameras are almost always represented using a couple of matrices. The first matrix defines the position and orientation of the camera, much like the matrix used for trans forms (see the earlier discussion). The second matrix is a specialized one that represents the translation from the 3D coordinates of the camera into the 2D drawing space of the viewport. It is called the projection matrix. I know—sigh—there’s that pesky math again!
+But the details of camera matrices are nicely hidden in most toolkits, so you usually can just point, shoot, and render.
+Figure 1-4 depicts the core concepts of the camera, viewport, and projection. At the lower left, we see an icon of an eye; this represents the location of the camera. The red vector pointing to the right (in this diagram labeled as the x-axis) represents the direction in which the camera is pointing. The blue cubes are the objects in the 3D scene. The green and red rectangles are, respectively, the near and far clipping planes. These two planes define the boundaries of a subset of the 3D space, known as the view volume or view frustum. Only objects within the view volume are actually rendered to the screen.
+The near clipping plane is equivalent to the viewport, where we will see the final rendered image.
+Cameras are extremely powerful, as they ultimately define the viewer’s relationship to a 3D scene and provide a sense of realism. They also provide another weapon in the animator’s arsenal: by dynamically moving the camera around, you can create cinematic effects and control the narrative experience.
+Shaders
