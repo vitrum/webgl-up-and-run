@@ -84,17 +84,43 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 
 三维网格是由它的顶点坐标定义位置的。每次你想将它移动到视线内的不同位置，特别是在处理网格在屏幕中移动或其它动画时会非常频繁的改变网格顶点的位置。处于节省系统资源的考虑，大多数系统支持调整变形和移动网格的相对值，而不必遍历操作所有顶点的属性就可以明确的改变网格的位置。并且支持网格的缩放、旋转、变形、翻转而无需调整任何顶点的实际值。
 
-变换通常是通过矩阵运算实现，数学对象包含一个数组的值，用来计算变换位置后的顶点坐标。如果你是和作者一样的线性代数爱好者的话，你会感觉这个想法很舒服。如果不是，请不要跟译者一样出上一身冷汗。本书中，我们用的Three.js这个工具将帮助我们把矩阵运算封装成黑盒子：我们刚才说的平移、旋转和缩放它都能正确的完成。
+变换通常是通过矩阵运算实现，数学对象包含一个数组的值，用来计算变换位置后的顶点坐标。如果你是和作者一样的线性代数爱好者的话，你会感觉这个想法很舒服。如果不是，请不要跟译者一样出上一身冷汗。本书中，我们用的Three.js这个工具将帮助我们把矩阵运算封装成黑盒子：我们刚才说的平移、旋转和缩放它都能准确的完成。
 
-相机，透视图，视点和投影
+摄像头，透视图，视点和投影
 
-三维系统中通常会使用像机，
+每个渲染场景都需要一个点来确定用户能看到的画面。通常三维系统会为此引入摄像头，摄像头用来表示用户在场景中的位置和方向，以及真是世界中摄像机的属性，例如：
+
+####Shaders
+
+
+####WebGL的API
+
+####WebGL程序的结构
+WebGL是在一天结束的时候，只是一个绘图库的绘图库的类固醇，授出，考虑与WebGL的图形可以绘制煞是威风，今天大多数机器上是充分利用强大的GPU硬件。但它实际上只是另一种帆布，类似于支持所有HTML5浏览器的二维画布。事实上，WebGL的实际使用HTML5<canvas>元素的3D图形浏览器页面。
+为了渲染WebGL的页面，应用程序必须，至少，请执行下列步骤：
+1。创建一个canvas元素。
+2。获取绘图上下文为画布。
+3。初始化视口。
+4。创建一个或多个缓冲区包含的数据呈现（通常为顶点）。
+5。创建一个或多个定义转换矩阵，从顶点缓冲区到屏幕空间。
+6。创建一个或多个着色器实现绘图算法。
+7。初始化着色器参数。
+8。绘制。
+本节描述了上述各步骤的一些细节。这里包含的代码剪断的宠物是一个完整的，样本WebGL的画布上绘制一个单一的白色方形的一部分。一个完整的代码清单，请参阅文件第1/example1-1.html章。
+
+####使用Canvas绘图
+
+####视口
+
+####Buffers, ArrayBuffer, and Typed Arrays
 
 
 =============================================
-A transform is typically represented by a matrix, a mathematical object containing an array of values used to compute the transformed positions of vertices. If you are a linear algebra geek like me, you probably feel comfortable with this idea. If not, please don’t break into a cold sweat. The Three.js toolkit we are using in this book lets us treat matrices like black boxes: we just say translate, rotate, or scale and the right thing happens.
 
-Cameras, Perspective, Viewports, and Projections Every rendered scene requires a point of view from which the user will be viewing it.
+
+Cameras, Perspective, Viewports, and Projections 
+Every rendered scene requires a point of view from which the user will be viewing it.
+
 3D systems typically use a camera, an object that defines where (relative to the scene) the user is positioned and oriented, as well as other real-world camera properties such as the size of the field of view, which defines perspective (i.e., objects farther away appearing smaller). The camera’s properties combine to deliver the final rendered image of a 3D scene into a 2D viewport defined by the window or canvas.
 Cameras are almost always represented using a couple of matrices. The first matrix defines the position and orientation of the camera, much like the matrix used for trans forms (see the earlier discussion). The second matrix is a specialized one that represents the translation from the 3D coordinates of the camera into the 2D drawing space of the viewport. It is called the projection matrix. I know—sigh—there’s that pesky math again!
 But the details of camera matrices are nicely hidden in most toolkits, so you usually can just point, shoot, and render.
