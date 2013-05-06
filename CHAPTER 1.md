@@ -93,7 +93,7 @@ Chrome，火狐，Safari和Opera等浏览器的开发商都致力于开发和提
 ####Shaders
 
 
-####WebGL的API
+##WebGL的API
 
 ####WebGL程序的结构
 WebGL是在一天结束的时候，只是一个绘图库的绘图库的类固醇，授出，考虑与WebGL的图形可以绘制煞是威风，今天大多数机器上是充分利用强大的GPU硬件。但它实际上只是另一种帆布，类似于支持所有HTML5浏览器的二维画布。事实上，WebGL的实际使用HTML5<canvas>元素的3D图形浏览器页面。
