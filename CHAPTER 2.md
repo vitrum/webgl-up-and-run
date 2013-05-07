@@ -31,7 +31,7 @@
 * Three.js使可扩展的
     给Three.js增加功能和定制很容易。如果你发现有的数据类型不支持，你可以自己写并作为插件使用。
 * Three.js也可以和HTML5的二维canvas一起工作
-   即使现在WebGL正当红，它仍然不是适合所有场合。
+    虽然现在WebGL正值当红，但它不可能适合所有场合。Three.js
 
 
 ###设置Three.js
@@ -43,5 +43,5 @@
 ####Shading the Scene
 
 =========
-Throughout the book, you will get to know Three.js in detail. For now, here is a summaryof what it has to offer:Three.js hides the details of 3D renderingThree.js abstracts out the details of the WebGL API, representing the 3D scene asmeshes, materials, and lights (i.e., the object types graphics programmers typicallywork with).Three.js is object-orientedProgrammers work with first-class JavaScript objects instead of just making JavaScript function calls.Three.js is feature-richMore than just a wrapper around raw WebGL, Three.js contains many prebuiltobjects useful for developing games, animations, presentations, high-resolutionmodels, and special effects.Three.js is fastThree.js employs 3D graphics best practices to maintain high performance, withoutsacrificing usability.Three.js supports interactionWebGL provides no native support for picking (i.e., knowing when the mousepointer is over an object). Three.js has solid picking support, making it easy to addinteractivity to your applications.Three.js does the mathThree.js has powerful, easy-to-use objects for 3D math, such as matrices, projections, and vectors.Three.js has built-in file format supportYou can load files in text formats exported by popular 3D modeling packages; thereare also Three.js-specific JSON and binary formats.18 | Chapter 2: Your First WebGL ProgramThree.js is extensibleIt is fairly easy to add features and customize Three.js. If you don’t see a data typeyou need, write it and plug it in.Three.js also works with the HTML5 2D canvasAs popular as WebGL has become, it is still not running everywhere. Three.js canalso render most content into a 2D canvas, should the 3D canvas context not beavailable, allowing your code to gracefully fall back to another solution.
+As popular as WebGL has become, it is still not running everywhere. Three.js canalso render most content into a 2D canvas, should the 3D canvas context not beavailable, allowing your code to gracefully fall back to another solution.
 It is important to note a few things Three.js doesn’t do. Three.js is not a game engine orvirtual world platform. It lacks some of the commonly used features you would find inthose systems, such as billboards, avatars, and physics. Nor does Three.js have the builtinnetwork support you would expect if you were writing a multiplayer game. If youneed those, you will have to build them yourself on top of Three.js. Still, its power andsimplicity make Three.js a great choice for getting started on your WebGL journey.So, without further ado, let’s get going and write some code!
