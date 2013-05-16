@@ -34,7 +34,7 @@
     虽然现在WebGL正值当红，但它不是适合所有场合。在三维canvas不能使用时，Three.js也能提供二维canvas内容。让代码能优雅降级到另一种解决方案。
     
 请注意有几件事是Three.js不做的：
-Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系统中常见的功能，如：广告牌、头像、物理运算。如果你在编写一个多人网游，你会发现没有期待中的内置网络支持等。如果你需要这些，你将不得不在Three.js上自己开发。尽管如此，用简单而强大的Three.js开始我们的WebGL旅程仍然不失为一个伟大的选择。
+Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系统中常见的功能，如：告示、头像、物理。如果你在编写一个多人网游，你会发现没有期待中的内置网络支持等。如果你需要这些，你将不得不在Three.js上自己开发。尽管如此，用简单而强大的Three.js开始我们的WebGL旅程仍然不失为一个伟大的选择。
 
 因此，事不宜迟，让我们去写hello world吧！（笑）
 
@@ -58,9 +58,50 @@ Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系
 
 ###一个简单的Three.js页面
 
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>A Simple Three.js Page</title>
+        <script src="../libs/Three.js"></script>
+        <script>
+            function onLoad()
+            {
+                // Grab our container div
+                var container = document.getElementById("container");
+                // Create the Three.js renderer, add it to our div
+                var renderer = new THREE.WebGLRenderer();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+                container.appendChild( renderer.domElement );
+                // Create a new Three.js scene
+                var scene = new THREE.Scene();
+                // Create a camera and add it to the scene
+                var camera = new THREE.PerspectiveCamera( 45,
+                container.offsetWidth / container.offsetHeight, 1, 4000 );
+                camera.position.set( 0, 0, 3.3333 );
+                scene.add( camera );
+                // Now, create a rectangle and add it to the scene
+                var geometry = new THREE.PlaneGeometry(1, 1);
+                var mesh = new THREE.Mesh( geometry,
+                new THREE.MeshBasicMaterial( ) );
+                scene.add( mesh );
+                // Render it
+                renderer.render( scene, camera );
+            }
+        </script>
+    </head>
+    <body onLoad="onLoad();">
+        <div id="container" style="width:500px; height:500px; background-color:#000000">
+            20 | Chapter 2: Your First WebGL Program
+        </div>
+    </body>
+    </html>
+
+
+
 ###一个真实事例
 
 ####Shading the Scene
 
 =========
-Take a little time with the source tree and documentation in order to familiarize yourselfwith Three.js. Now, if you’re like me, you plan to ignore that recommendation becauseyou are ready to jump right in. You’re sick of the preliminaries and you want to get downto coding! OK, I understand—but at least do this for me: browse the examples. Underthe folder examples, there are nearly 100 WebGL demos and several 2D canvas demos,too, covering a range of features and effects. You won’t be sorry.Finally, get all of this onto a web server. You will need to serve up your pages in orderfor most of the samples in the book to work. I run a local version of a standard LAMPstack on my MacBook…but all you really need is the “A” part of LAMP (i.e., a web serversuch as Apache).
+Now that you are set up, it’s time to write your first WebGL program. From this exercise,you will see that it’s pretty simple to get going with Three.js. Example 2-1 contains thecomplete code listing for a new version of that square-drawing program from Chapter 1, but in 30 lines instead of 150. Now the whole sample is greatly condensed.Example 2-1. A simple page using Three.js
