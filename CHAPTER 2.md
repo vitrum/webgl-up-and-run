@@ -58,6 +58,9 @@ Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系
 
 ###一个简单的Three.js页面
 
+现在可以开始了，这次是第一个WebGL程序。从这个练习中，你会看到，使用Three.js是很简单的。例2－1是第一章中画方形离子的更新版，但是只有30行，而不是150行，现在代码大大的精炼了。
+
+*例2－1 一个简单的Three.js 页面*
 
     <!DOCTYPE html>
     <html>
@@ -97,11 +100,17 @@ Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系
     </body>
     </html>
 
+我们来看看它是怎么工作的。
 
+首先，我们通过<script>调用了Three.js库。
+
+接下来我们通过脚本画出了正方形。整个程序包含在一个onLoad()函数中，通过页面的onload时间出发。
+
+在函数中，我们首先找到需要WebGL渲染的页面元素，并将其保存在变量里。然后我们初始化Three.js渲染对象。渲染器负责所有的Three.js绘图（当然是指WebGL）。
 
 ###一个真实事例
 
 ####Shading the Scene
 
 =========
-Now that you are set up, it’s time to write your first WebGL program. From this exercise,you will see that it’s pretty simple to get going with Three.js. Example 2-1 contains thecomplete code listing for a new version of that square-drawing program from Chapter 1, but in 30 lines instead of 150. Now the whole sample is greatly condensed.Example 2-1. A simple page using Three.js
+Then, we supply our script that draws the square. The entire program is contained in asingle function, onLoad(), triggered by the page’s onLoad event.In the body of the function, we first find the page element that we are going to use torender the WebGL, and save that in the variable container. Then, we initialize theThree.js renderer object. The renderer is responsible for all Three.js drawing (via WebGLcontext, of course). We construct the renderer object, size it to the same size as thecontainer, and add it as a DOM child element of the container.Next, we create a scene. The scene is the top-level object in the Three.js graphics hierarchy. It contains all other graphical objects. (In Three.js, objects exist in a parent-childhierarchy. More on this in later chapters.) Once we have a scene, we are going to add acouple of objects to it: a camera and a mesh. The camera defines where we are viewingthe scene from: in this example, we use a transform to set its position property to 3.3333units (a little bit back) from the origin. Our mesh is composed of a geometry object anda material. For geometry, we are using a 1 × 1 rectangle created with the Three.jsPlaneGeometry object. Our material tells Three.js how to shade the object. In this example, our material is of type MeshBasicMaterial (i.e., just a single simple color witha default value of pure white). Three.js objects have a default position of 0, 0, 0, so ourwhite rectangle will be placed at the origin.Finally, we need to render the scene. We do this by calling the renderer’s render()method, feeding it a scene and a camera.
