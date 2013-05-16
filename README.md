@@ -4,6 +4,8 @@ webgl-up-and-run
 webGL up and run
 
 本书英文版购买地址
+http://www.amazon.cn/WebGL-Up-and-Running-Parisi-Tony/dp/144932357X/ref=sr_1_fkmr1_1?ie=UTF8&qid=1368700413&sr=8-1-fkmr1&keywords=webGL+up+and+run
+
 
 本书官方中译版购买地址
 
