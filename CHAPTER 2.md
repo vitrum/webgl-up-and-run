@@ -31,10 +31,30 @@
 * Three.js使可扩展的
     给Three.js增加功能和定制很容易。如果你发现有的数据类型不支持，你可以自己写并作为插件使用。
 * Three.js也可以和HTML5的二维canvas一起工作
-    虽然现在WebGL正值当红，但它不可能适合所有场合。Three.js
+    虽然现在WebGL正值当红，但它不是适合所有场合。在三维canvas不能使用时，Three.js也能提供二维canvas内容。让代码能优雅降级到另一种解决方案。
+    
+请注意有几件事是Three.js不做的：
+Three.js不是一个游戏引擎或者虚拟世界平台。它缺少在其它系统中常见的功能，如：广告牌、头像、物理运算。如果你在编写一个多人网游，你会发现没有期待中的内置网络支持等。如果你需要这些，你将不得不在Three.js上自己开发。尽管如此，用简单而强大的Three.js开始我们的WebGL旅程仍然不失为一个伟大的选择。
 
+因此，事不宜迟，让我们去写hello world吧！（笑）
 
 ###设置Three.js
+
+你需要做的第一件事，就是从GitHub上下载最新的Three.js。截至撰写本文时，Three.js库URL是https://github.com/mrdoob/three.js/。下载完Git后，你会发现压缩过的精简版是在 build/Three.js。完整源文件是在src目录中。API文档在GitHub上，不过文档都是很基础的介绍，所以你可能会需要保留源文件方便将来参考。
+
+>Three.js是使用Google Closure 编译发布的，这个包中包含了Three.js库的几个单独的源文件。如果你不了解Closure，想了解更多，请去http://code.google.com/closure/compiler/。如果你不想去知道这些细节，你现在可以把Three.js当成一个黑盒子。
+
+花点时间了解源文件和文档会让你熟悉Three.js。
+
+当然你也可能象我一样打算忽略这些，因为你已经忍不住要开始折腾了。好吧，在此之前，请至少看看我为本书做的例程。
+
+在examples目录中，有近100个WebGL和几个二维canvas演示，它们涵盖了一系列的功能和效果。
+
+你不会后悔的。
+
+最后，所有例程要放在Web服务器上。本书的大部分程序页面需要你放在服务器上才能访问。
+
+我是用我的MacBook上的LAMP来存放页面的，其实你需要的是A，也就是例如Apache之类的网页服务器。
 
 ###一个简单的Three.js页面
 
@@ -43,5 +63,4 @@
 ####Shading the Scene
 
 =========
-As popular as WebGL has become, it is still not running everywhere. Three.js canalso render most content into a 2D canvas, should the 3D canvas context not beavailable, allowing your code to gracefully fall back to another solution.
-It is important to note a few things Three.js doesn’t do. Three.js is not a game engine orvirtual world platform. It lacks some of the commonly used features you would find inthose systems, such as billboards, avatars, and physics. Nor does Three.js have the builtinnetwork support you would expect if you were writing a multiplayer game. If youneed those, you will have to build them yourself on top of Three.js. Still, its power andsimplicity make Three.js a great choice for getting started on your WebGL journey.So, without further ado, let’s get going and write some code!
+Take a little time with the source tree and documentation in order to familiarize yourselfwith Three.js. Now, if you’re like me, you plan to ignore that recommendation becauseyou are ready to jump right in. You’re sick of the preliminaries and you want to get downto coding! OK, I understand—but at least do this for me: browse the examples. Underthe folder examples, there are nearly 100 WebGL demos and several 2D canvas demos,too, covering a range of features and effects. You won’t be sorry.Finally, get all of this onto a web server. You will need to serve up your pages in orderfor most of the samples in the book to work. I run a local version of a standard LAMPstack on my MacBook…but all you really need is the “A” part of LAMP (i.e., a web serversuch as Apache).
